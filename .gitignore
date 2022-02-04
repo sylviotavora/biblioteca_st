@@ -1,1 +1,4 @@
 _MATERIAL/
+.env
+writable/debugbar/
+writable/logs/

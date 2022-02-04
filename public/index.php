@@ -1,5 +1,8 @@
 <?php
 
+// require main config file
+require_once(dirname(__FILE__) . '/../config/config.php');
+
 // Path to the front controller (this file)
 define('FCPATH', __DIR__ . DIRECTORY_SEPARATOR);
 
