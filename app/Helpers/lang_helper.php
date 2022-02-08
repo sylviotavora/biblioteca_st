@@ -1,6 +1,6 @@
 <?php
 
-function TXT($key, $lang)
+function TXT($key)
 {
 
     /*
@@ -14,19 +14,20 @@ function TXT($key, $lang)
     $lang = 'pt';
 
     // check if there is a language cookie
-    if(get_cookie('biblio_lang')){
+    if(has_cookie('stav_lang')){
 
         // set the language
-        $lang = get_cookie('biblio_lang');
+        $lang = get_cookie('stav_lang');
     } else {
 
         // create the language cookie
-        set_cookie('biblio_lang', $lang, (86400 * 365));
+        set_cookie('stav_lang', $lang, (86400 * 365));
     }
 
     // check if the language file exists
     if(!file_exists(dirname(__FILE__) . '/../../languages/' . $lang . '.php')){
-        die('Erro!');
+        echo view('errors/html/error_404.php'); 
+        return;
     }
 
     // load language file
@@ -36,7 +37,7 @@ function TXT($key, $lang)
     if(key_exists($key, $language_items)){
         return $language_items[$key];
     } else {
-        return '(N/A)';
+        return '(...)';
     }
 
 }

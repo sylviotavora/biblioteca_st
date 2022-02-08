@@ -7,5 +7,5 @@ return [
     'no'             => 'Não',
     'ok'             => 'Ok',  
     'accept'         => 'Aceitar',
-    'cancel'         => 'Cancelar',
+    'cancel'         => 'Cancelar', 
 ];

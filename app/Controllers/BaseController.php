@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Libraries\Language;
 use CodeIgniter\Controller;
 use CodeIgniter\HTTP\CLIRequest;
 use CodeIgniter\HTTP\IncomingRequest;
@@ -35,7 +36,9 @@ class BaseController extends Controller
      *
      * @var array
      */
-    protected $helpers = ['biblioteca_st', 'lang','cookie'];
+    protected $helpers = ['stavora'];
+
+    protected $LNG;
 
     /**
      * Constructor.
@@ -45,8 +48,7 @@ class BaseController extends Controller
         // Do Not Edit This Line
         parent::initController($request, $response, $logger);
 
-        // Preload any models, libraries, etc, here.
-
-        // E.g.: $this->session = \Config\Services::session();
+        // Language
+        $this->LNG = new Language();
     }
 }

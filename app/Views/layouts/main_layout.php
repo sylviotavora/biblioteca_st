@@ -7,8 +7,15 @@
     <title><?= APP_NAME . " " . APP_VERSION ?></title>
     <!-- css -->
     <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.min.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/css/app.css') ?>">
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="<?= base_url('assets/images/logo.png') ?>" type="image/png">
+
 </head>
 <body>
+
+<?= $this->include('layouts/main_bar') ?>
 
 <?= $this->renderSection('content') ?>
 
