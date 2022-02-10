@@ -5,7 +5,14 @@
 <div class="container-fluid">
     <div class="row my-5">
         <div class="col-12 text-center">
-            <h1>HOME</h1>
+            <h3>Funcionalidades disponíveis:</h3>
+            <?php foreach($features as $feature): ?>
+
+                <div class="card p-2 my-1">
+                    <h4><?= $feature->name ?></h4>
+                </div>
+
+            <?php endforeach; ?>
         </div>
     </div>
 </div>

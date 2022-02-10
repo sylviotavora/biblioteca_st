@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid main-bar">
     <div class="row">
 
         <div class="col-6 p-2">
@@ -11,10 +11,16 @@
         <div class="col-6 p-2 text-end align-self-center">
 
             <?php if(session()->has('user')): ?>
-                <span class="mr-3"><?= session('user')['username'] ?></span>
-                <a href="<?= site_url('main/logout_teste') ?>">LOGOUT</a>
+
+                <i class="far fa-user me-2"></i>
+                <a href="#" class="link-app"><?= session('user')['username'] ?></a>
+                <span class="mx-2 opacity-50">|</span>
+                <a href="<?= site_url('main/logout_teste') ?>" class="link-app"><?= $LNG->TXT('logout') ?></a>
             <?php else: ?>
-                <a href="<?= site_url('main/login_teste') ?>">LOGIN</a>
+
+                <a href="<?= site_url('main/login_teste') ?>" class="link-app"><?= $LNG->TXT('login') ?></a>
+                <span class="mx-2 opacity-50">|</span>
+                <a href="#" class="link-app"><?= $LNG->TXT('sign in') ?></a>
             <?php endif; ?>
 
             <a href="<?= site_url('main/change_language/pt') ?>"><img src="<?= base_url('assets/images/icons/pt-br.png') ?>" alt="Brasil" class="m-1" ></a>

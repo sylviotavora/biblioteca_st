@@ -2,13 +2,28 @@
 
 namespace App\Controllers;
 
+use App\Models\Features_model;
+
 class Main extends BaseController
 {
     // ========================================================================
     public function index()
     {
         $data['LNG'] = $this->LNG;
+
+        $features = new Features_model();
+
+        if(!session()->has('user')){
+            $data['features'] = $features->get_open_features();
+        } else {
+            $data['features'] = $features->get_all_features();
+        }
+
         echo view('home', $data);
+
+        // printData($funcionalidades);
+        // die('FIM');
+
     }
 
     // ========================================================================
@@ -47,6 +62,16 @@ class Main extends BaseController
         session()->remove('user');
         return redirect()->to('main');
     }
+
+
+
+
+
+
+
+
+
+
 
     // ========================================================================
     public function sessao()
