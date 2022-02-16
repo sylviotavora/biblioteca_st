@@ -11,7 +11,7 @@ class Feature
     public $access_level;
     public $feature_icon;
 
-    public function __construct($name, $controller, $initial_method, $submission_method = null, $access_level = 0, $feature_icon = null)
+    public function __construct($name, $controller, $initial_method, $submission_method, $access_level, $feature_icon = null)
     {
         $this->name = $name;
         $this->controller = $controller;  

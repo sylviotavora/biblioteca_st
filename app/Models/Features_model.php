@@ -43,9 +43,9 @@ class Features_model extends Model
     {
         $features = [];
 
-        $features['create_md5'] = new Feature('ft_create_md5_hash','tools','create_md5');
-        $features['create_sha1'] = new Feature('ft_create_sha1_hash','tools','create_sha1');
-        $features['create_random_number'] = new Feature('ft_create_random_number','tools','create_random_number', 1);
+        $features['create_md5'] = new Feature('ft_create_md5_hash','tools','create_md5', null, 0);
+        $features['create_sha1'] = new Feature('ft_create_sha1_hash','tools','create_sha1', null, 0);
+        $features['create_random_number'] = new Feature('ft_create_random_number','tools','create_random_number', null, 1);
 
         return $features;
     }
