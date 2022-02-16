@@ -16,6 +16,11 @@ class Features_model extends Model
     } 
 
     // ========================================================================
+    public function get_feature($key)
+    {
+        return $this->features[$key];
+    }
+    // ========================================================================
     public function get_all_features()
     {        
        return $this->features; 
@@ -38,9 +43,9 @@ class Features_model extends Model
     {
         $features = [];
 
-        $features[] = new Feature('Criar MD5','Tools','create_md5');
-        $features[] = new Feature('Criar SHA1','Tools','create_sha1');
-        $features[] = new Feature('Criar número aleatório','Tools','create_random_number', 1);
+        $features['create_md5'] = new Feature('ft_create_md5_hash','tools','create_md5');
+        $features['create_sha1'] = new Feature('ft_create_sha1_hash','tools','create_sha1');
+        $features['create_random_number'] = new Feature('ft_create_random_number','tools','create_random_number', 1);
 
         return $features;
     }

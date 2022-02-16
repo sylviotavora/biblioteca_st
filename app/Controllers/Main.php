@@ -51,7 +51,8 @@ class Main extends BaseController
         // TPM 
         session()->set('user',[
             'id_user' => 1,
-            'username' => 'usuario@teste.com'
+            'username' => 'usuario@teste.com',
+            'access_level' => 1
         ]);
         return redirect()->to('main');
     }

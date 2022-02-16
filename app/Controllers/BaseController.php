@@ -36,7 +36,7 @@ class BaseController extends Controller
      *
      * @var array
      */
-    protected $helpers = ['stavora'];
+    protected $helpers = ['stavora', 'form'];
 
     protected $LNG;
 
