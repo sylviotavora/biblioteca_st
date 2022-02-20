@@ -1,12 +1,16 @@
 <?php
 
-use App\Models\Features_model;
+
 
 // ============================================================================
 //  BIBLIOTECA_ST general helper functions
 // ============================================================================
 
+// ============================================================================
+use App\Models\Features_model;
 
+
+// ============================================================================
 function check_feature_permission_access($feature_key)
 {
 
@@ -30,6 +34,13 @@ function check_feature_permission_access($feature_key)
     } else {
         return false;
     }    
+}
+
+// ============================================================================
+function check_session()
+{
+    // check if there is a user int the session
+    return session()->has('user');
 }
 
 // ============================================================================

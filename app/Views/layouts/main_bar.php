@@ -20,7 +20,7 @@
 
                 <a href="<?= site_url('main/login_teste') ?>" class="link-app"><?= $LNG->TXT('login') ?></a>
                 <span class="mx-2 opacity-50">|</span>
-                <a href="#" class="link-app"><?= $LNG->TXT('sign in') ?></a>
+                <a href="<?= site_url('main/new_user') ?>" class="link-app"><?= $LNG->TXT('sign in') ?></a>
             <?php endif; ?>
 
             <a href="<?= site_url('main/change_language/pt') ?>"><img src="<?= base_url('assets/images/icons/pt-br.png') ?>" alt="Brasil" class="m-1" ></a>
