@@ -10,7 +10,7 @@
 
                 <p class="main-title"><?= $LNG->TXT('new_user_title') ?></p>
 
-                <?= form_open('main/new_user_submit', ['novalidate' => false]) ?>
+                <?= form_open('main/new_user_submit') ?>
 
                 <div class="mb-3">
                     <label for="text_username" class="form-label"><?= $LNG->TXT('email') ?></label>
@@ -19,12 +19,12 @@
 
                 <div class="mb-3">
                     <label for="text_password" class="form-label"><?= $LNG->TXT('password') ?></label>
-                    <input type="password" name="text_password" id="text_password" class="form-control" required minlength="6" maxlength="16">
+                    <input type="password" name="text_password" id="text_password" class="form-control" required minlength="6" maxlength="16" pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*\d)]">
                 </div>
 
                 <div class="mb-3">
                     <label for="text_repeat_password" class="form-label"><?= $LNG->TXT('new_user_repeat_password') ?></label>
-                    <input type="password" name="text_repeat_password" id="text_repeat_password" class="form-control" required minlength="6" maxlength="16">
+                    <input type="password" name="text_repeat_password" id="text_repeat_password" class="form-control" required minlength="6" maxlength="16" pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*\d)]>
                 </div>
 
                 <div class="row">
@@ -43,12 +43,7 @@
 
                 <?= form_close() ?>
 
-
-
-
-
-
-
+                <!-- validation errors -->
                 <?php if (!empty($validation_errors)) : ?>
                     <div class="alert alert-danger p-2">
                         <small>
@@ -62,13 +57,31 @@
                     </div>
                 <?php endif; ?>
 
+                 <!-- login errors -->
+                <?php if(!empty($login_error)):?>                
+                    <div class="alert alert-danger p-2">
+                        <small>
+                             <i class="far fa-times-circle me-2"></i><?= $login_error['error_message'] ?><br>
+                        </small>
+                    </div>
 
+                    <!-- email is not confirmed -->
+                    <?php if(!empty($login_error['error_number']) && $login_error['error_number'] == 'unconfirmed email'): ?>                        
+                        <div class="text-center">
+                            <a href="<?= site_url('main/send_email_confirmation/' . aes_encrypt($login_error['id_user'])) ?>" class="btn btn-primary"><?= $LNG->TXT('new_account_send_verification_email') ?></a>
+                        </div>
+                        <?php endif; ?>
 
+                        <!-- not receiving newsletter -->
+                    <?php if(!empty($login_error['error_number']) && $login_error['error_number'] == 'no newsletters'): ?>                        
+                        <div class="text-center">
+                                <p><?= $LNG->TXT('new_account_activate_newsletters') ?></p>
+                                <a href="<?= site_url('main') ?>" class="btn btn-primary btn-150"><?= $LNG->TXT('no') ?></a>
+                            <a href="<?= site_url('main/renew_newsletter_consent/' . aes_encrypt($login_error['id_user'])) ?>" class="btn btn-primary btn-150"><?= $LNG->TXT('yes') ?></a>
+                        </div>
+                        <?php endif; ?>
 
-
-
-
-
+                <?php endif;?>
 
             </div>
 
@@ -84,7 +97,7 @@
     function preencher() {
         document.querySelector("#text_username").value = "joao@gmail.com";
         document.querySelector("#text_password").value = "Aa123456";
-        document.querySelector("#text_repeat_password").value = "Aa123456    ";
+        document.querySelector("#text_repeat_password").value = "Aa123456";
     }
 </script>
 

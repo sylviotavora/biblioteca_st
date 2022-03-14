@@ -44,6 +44,31 @@ function check_session()
 }
 
 // ============================================================================
+function aes_encrypt($value)
+{
+    return bin2hex(openssl_encrypt($value, 'aes-256-cbc',AES_KEY,OPENSSL_RAW_DATA,AES_IV));
+}
+
+// ============================================================================
+function aes_decrypt($value)
+{
+    // check if total number of chars is even
+    if(strlen($value) % 2 != 0){
+        return -1;
+    }
+
+    return openssl_decrypt(hex2bin($value), 'aes-256-cbc',AES_KEY,OPENSSL_RAW_DATA,AES_IV);
+}
+
+// ============================================================================
+function generate_random_hash()
+{
+    // generates a random 32 chars hash
+    return md5(sha1(uniqid()));
+}
+
+
+// ============================================================================
 function printData($data, $die = true)
 {
     // display data for debugging

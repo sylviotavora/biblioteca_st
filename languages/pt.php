@@ -32,6 +32,17 @@ return [
     'ft_create_sha1_hash'  => 'Criar hash SH1',
     'ft_create_random_number' => 'Criar número aleatório',
 
+    // new account errors
+    'new_account_error_1' => 'O email não está ainda verificado.',
+    'new_account_error_2' => 'A conta existe, mas não está ativa.',
+    'new_account_error_3' => 'A conta não está disponível para receber <i>newsletters</i>.',
+    'new_account_error_4' => 'A conta já está registrada e ativa.',
+    'new_account_send_verification_email' => 'Enviar novamente a mensagem para verificar email.',
+    'new_account_activate_newsletters' => 'Deseja receber <i>newsletters</i>',
+    'new_account_final_message_title' => 'VALIDAÇÃO DE EMAIL',
+    'new_account_final_message_message' => 'Por favor, verifique sua caixa de correio. Foi enviado para o endereço <strong style="color: yellow;">^</strong> um email para validação da sua conta.',
+    'new_account_email_verified' => 'A sua conta foi validada com sucesso.<br>Seja bem vindo a esta plataforma.',
+
     // validations errors
     'error_field_required' => 'O campo {field} é de preenchimento obrigatório.',
     'error_valid_email' => 'O campo {field} tem que ser um email válido.',

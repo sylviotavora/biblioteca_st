@@ -32,6 +32,17 @@ return [
     'ft_create_sha1_hash'  => 'Create SH1 hash',
     'ft_create_random_number' => 'Create random number',
 
+    // new account errors
+    'new_account_error_1' => 'The email is not verified.',
+    'new_account_error_2' => 'The account exists, but it is not active.',
+    'new_account_error_3' => 'The account is not available to receive newsletters.',
+    'new_account_error_4' => 'The account is already active.',
+    'new_account_send_verification_email' => 'Resend message to verify email.',
+    'new_account_activate_newsletters' => 'Do you want to receive <i>newsletters</i>',    
+    'new_account_final_message_title' => 'EMAIL VALIDATION',
+    'new_account_final_message_message' => 'Please, check you email inbox. An email was sent to <strong style="color: yellow;">^</strong> in order to validate your account.',                                    
+    'new_account_email_verified' => 'Your account was validated with success.<br>Welcome to this plataform.',
+
     // validations errors
     'error_field_required' => '{field} field is required.',
     'error_valid_email' => '{field} must be a valid email.',
